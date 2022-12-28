@@ -1,6 +1,3 @@
-import LoginButton from "../auth0/loginButton";
-import LogoutButton from "../auth0/logoutButton";
-import SignupButton from "../auth0/signupButton";
 import HeaderLinks from "../auth0/headerLinks";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";

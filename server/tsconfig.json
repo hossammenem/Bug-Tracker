@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "module": "NodeNext",
+      "esModuleInterop": true,
+      "target": "ES2020",
+      "moduleResolution": "NodeNext",
+      "outDir": "dist",
+      "forceConsistentCasingInFileNames": true,
+      "noFallthroughCasesInSwitch": true,
+      "isolatedModules": false,
+      "strict": true,
+      "skipLibCheck": true,
+      "noImplicitAny": true,
+      "useUnknownInCatchVariables": false,
+      "inlineSourceMap": true
+    },
+    "ts-node": {
+        "esm": true,
+        "files": true
+    },
+    "include": ["**/*.ts"],
+    "exclude": [".git", "node_modules"],
+}
