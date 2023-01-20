@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const schema = mongoose.Schema;
 const objectId = mongoose.Types.ObjectId;
 
-// how to deal with reporter's reports?
 const reporterSchema = new schema({
     name:      { type: String, required: true },
     email:       { type: String},
