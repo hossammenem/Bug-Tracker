@@ -1,5 +1,5 @@
-//import { config } from "dotenv";
-//config();
+import { config } from "dotenv";
+config();
 
 import express from "express";
 import mongoose from "mongoose";
