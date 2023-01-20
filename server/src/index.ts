@@ -40,7 +40,7 @@ app.delete('/T/:tableId/U/:reporterName/leave', controllers.leaveTable);
 
 // app.get('/all-tables', controllers.getAllTablesForXReporter);
 
-mongoose.connect("mongodb+srv://bugTrackerNodejs:1eGP5QV11ltpTDY4@cluster0.wqqrnxy.mongodb.net/?retryWrites=true&w=majority").then(() => {
+mongoose.connect(process.env.MONGO_URI!).then(() => {
     console.log(`listening on port ${PORT}`);
     app.listen(PORT);
 });
