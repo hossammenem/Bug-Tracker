@@ -1,4 +1,4 @@
-import useDocumentTitle from "./useDocumentTitle";
+import useDocumentTitle from "../components/useDocumentTitle";
 import { useEffect, useState } from "react";
 import getAllTables, { TTable } from "../api/getAllTables";
 
@@ -22,11 +22,11 @@ function AllTables() {
     return (
         <div style={{marginTop: "200px"}} className="container">
             <div className="container edited">
-                <p>{message}</p>
+              <p>{message}</p>
             </div>
             <ul className="list-group">
             { tables.map((table) => (
-                <a key={table._id} href={`/T/${table._id}`} className="list-group-item">{table.name}</a>
+                <a key={table._id} href={`/T/${table._id}`} className="list-group-item normal">{table.name}</a>
             ))}
             </ul> 
         </div>

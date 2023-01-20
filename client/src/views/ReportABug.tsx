@@ -1,6 +1,6 @@
 import { useState, useEffect  } from "react";
 import { useNavigate } from 'react-router-dom';
-import useDocumentTitle from "./useDocumentTitle";
+import useDocumentTitle from "../components/useDocumentTitle";
 import SubmitReport from "../api/reportBug";
 import { useAuth0 } from "@auth0/auth0-react";
 import getUsername from "../api/getUsername";

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
-import useDocumentTitle from "./useDocumentTitle";
+import useDocumentTitle from "../components/useDocumentTitle";
 import createTable from "../api/createTable";
 import getUsername from "../api/getUsername";
+import swal from "sweetalert";
 
 function Create() {
     useDocumentTitle("create");
@@ -25,12 +26,23 @@ function Create() {
 
     async function handleCreateTable(e: React.FormEvent){
         e.preventDefault();
-        const id = await createTable(title, username);
-        navigate(`/T/${id}`);
+        if(!isAuthenticated){
+          swal("Error!", "Please login or sign up to be able to create tables.")
+        } else {
+          const id = await createTable(title, username);
+          if(id == 400){
+            swal("Error!", "Table Name Already Taken.")
+          } else{
+            navigate(`/T/${id}`);
+          }
+        }
     }
 
     return (
         <>
+        <div className="container edited" style={{marginBottom: "-100px"}}>
+          <a href="/" style={{fontSize: "20px",}}>&#8592; Back To Home</a>
+        </div>
         <div className="container edited">
             <p>Create Table</p>
         </div>

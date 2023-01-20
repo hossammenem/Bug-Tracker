@@ -145,10 +145,9 @@ a.list-group-item, .list-group-item-action {
   border: 1px solid #e7e7e7 !important;
   border-radius: 0 !important;
   color: #404040;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: .08em;
-  text-transform: uppercase;
   text-decoration: none;
 }
 .list-group-item {

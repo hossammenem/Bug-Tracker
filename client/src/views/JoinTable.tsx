@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import useDocumentTitle from "./useDocumentTitle";
+import useDocumentTitle from "../components/useDocumentTitle";
 import { useAuth0 } from "@auth0/auth0-react";
 import joinTable from "../api/joinTable";
 import getUsername from "../api/getUsername";
+import swal from "sweetalert";
 
 function Join() {
     useDocumentTitle("Join");
@@ -24,14 +25,24 @@ function Join() {
     }, [isAuthenticated])
 
     async function handleJoinTable(e: React.FormEvent){
-        e.preventDefault();
+      e.preventDefault();
+      if(!isAuthenticated){
+        swal("Error!", "Please login or sign up to be able to join tables.")
+      } else {
         const id = await joinTable(title, username);
-        navigate(`/T/${id}`);
+        if(id == 400){
+          swal("Error!", "Table Not Found.")
+        } else{
+          navigate(`/T/${id}`);
+        }
+      }
     }
-    
 
     return (
     <>
+    <div className="container edited" style={{marginBottom: "-100px"}}>
+      <a href="/" style={{fontSize: "20px",}}>&#8592; Back To Home</a>
+    </div>
     <div className="container edited">
         <p>Join Table</p>
     </div>

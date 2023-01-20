@@ -11,7 +11,7 @@ async function joinTable(table: String, reporter: any) {
             "Content-Type": "application/json",
         },
     });
-    return response.json();
+    return response.status == 400? response.status : response.json()
 }
 
 export default joinTable;

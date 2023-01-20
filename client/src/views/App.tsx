@@ -1,4 +1,4 @@
-import useDocumentTitle from "./useDocumentTitle";
+import useDocumentTitle from "../components/useDocumentTitle";
 
 function App() {
     useDocumentTitle('Home');

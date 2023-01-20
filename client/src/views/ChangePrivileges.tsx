@@ -1,4 +1,4 @@
-import useDocumentTitle from "./useDocumentTitle";
+import useDocumentTitle from "../components/useDocumentTitle";
 import React, { useEffect, useState } from "react";
 import getAllMembers, { TAdmin, TReporter } from "../api/getAllMembers";
 import changePrivileges from "../api/changePrivileges";

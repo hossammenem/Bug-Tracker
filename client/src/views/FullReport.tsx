@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useDocumentTitle from "./useDocumentTitle";
+import useDocumentTitle from "../components/useDocumentTitle";
 import getFullReport from "../api/fullReport";
 import { TReport } from "../api/getAllReports";
 import changeStatus from "../api/changeStatus";

@@ -31,8 +31,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Auth0Provider
-    domain=""
-    clientId=""
+    domain="dev-zu1hgdassv1cwy7e.eu.auth0.com"
+    clientId="KkNAw2leZyq54nOZhdPx5pKZWrwBymCN"
     redirectUri={window.location.origin}
     cacheLocation="localstorage">
     <Header />

@@ -27,7 +27,7 @@ export async function getReportInfo(req: Request, res: Response) {
 export async function getAllReports(req: Request, res: Response) {
     const table = await Table.findById(req.params.tableId);
     const reports = await Report.find({ "_id": table?.reports });
-    res.send(reports);
+    res.send({"reports": reports, "tableTitle": table?.name});
 }
 
 export async function getAllTableMemebers(req: Request, res: Response){
@@ -40,6 +40,14 @@ export async function getAllTableMemebers(req: Request, res: Response){
         "admins": admins,
         "owner": owner,
     })
+}
+
+export async function getRole(req: Request, res: Response) {
+  const table = await Table.findById(req.body.tableId);
+  const user = await Reporter.findOne({"name": req.body.reporter});
+  if(table?.reporters.includes(user?.id)) return res.json("reporter");
+  if(table?.admins.includes(user?.id)) return res.json("admin");
+  if(table?.owner == user?.id) return res.json("owner");
 }
 export async function changePrivileges(req: Request, res: Response){
     const table = await Table.findById(req.params.tableId);
@@ -97,6 +105,10 @@ export async function join(req: Request, res: Response){
 
 export async function create(req: Request, res: Response) {
     const reporter = await Reporter.findOne( { "name": req.body.reporter } );
+    const table = await Table.findOne({ "name": req.body.table })
+
+    if(table) return res.status(400).send("Table name already taken")
+
     const newTable = new Table({
         name: req.body.table,
         owner: reporter?.id,
