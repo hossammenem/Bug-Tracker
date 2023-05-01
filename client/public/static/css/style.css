@@ -1932,3 +1932,25 @@ section {
   box-shadow: none;
   background-color: #0d6efd;
 }
+
+.preloaderContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloaderSpinner {
+  width: 69px;
+  height: 69px;
+  border: 9px solid;
+  border-color: rgb(120, 118, 118) transparent rgb(138, 133, 133) transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
