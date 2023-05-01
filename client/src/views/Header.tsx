@@ -16,6 +16,10 @@ function Header() {
         }
         getUsernameHandler();
     }, [isAuthenticated])
+    
+    if (isAuthenticated && !username) {
+        return <PreLoader />;
+    }
 
     return(
         <header id="header" className="fixed-top">
